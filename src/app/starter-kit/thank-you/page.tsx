@@ -3,11 +3,15 @@ import Link from "next/link";
 
 type SearchParams = { [key: string]: string | string[] | undefined };
 
-export default function StarterKitThankYouPage({
+export default async function Page({
   searchParams,
 }: {
-  searchParams: SearchParams;
+  searchParams: Promise<SearchParams>;
 }) {
+  // If you ever need Stripe session_id etc, it's here:
+  // const sp = await searchParams;
+  // const sessionId = sp.session_id;
+
   return (
     <main className="min-h-screen bg-slate-950 text-slate-50">
       <div className="mx-auto flex max-w-3xl flex-col gap-8 px-4 py-16">
@@ -23,7 +27,7 @@ export default function StarterKitThankYouPage({
           </p>
         </header>
 
-        <section className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 shadow-xl space-y-4">
+        <section className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-6 shadow-xl">
           <h2 className="text-xl font-semibold">Next step</h2>
           <p className="text-slate-300">
             All of your files live inside the member portal so you can always
@@ -44,7 +48,8 @@ export default function StarterKitThankYouPage({
 
         <footer className="border-t border-slate-800 pt-6 text-sm text-slate-500">
           <p>
-            Need help? Reply to any email from FutureMind Wealth and I&apos;ll help you.
+            Need help? Reply to any email from FutureMind Wealth and I&apos;ll
+            help you.
           </p>
         </footer>
       </div>
