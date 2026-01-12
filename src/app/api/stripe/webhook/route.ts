@@ -11,8 +11,11 @@ const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
 if (!STRIPE_SECRET_KEY) throw new Error("Missing STRIPE_SECRET_KEY");
 if (!STRIPE_WEBHOOK_SECRET) throw new Error("Missing STRIPE_WEBHOOK_SECRET");
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+// Lock env vars into the exact types we need at runtime + for TS
+const STRIPE_KEY: string = STRIPE_SECRET_KEY;
+const WEBHOOK_SECRET: string = STRIPE_WEBHOOK_SECRET;
 
+const stripe = new Stripe(STRIPE_KEY);
 
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -50,13 +53,15 @@ async function resolveTierFromDb(priceId: string): Promise<Tier | null> {
 
 export async function POST(req: Request) {
   const sig = req.headers.get("stripe-signature");
-  if (!sig) return NextResponse.json({ error: "Missing Stripe signature" }, { status: 400 });
+  if (!sig) {
+    return NextResponse.json({ error: "Missing Stripe signature" }, { status: 400 });
+  }
 
   const rawBody = await req.text();
 
   let event: Stripe.Event;
   try {
-    event = stripe.webhooks.constructEvent(rawBody, sig, STRIPE_WEBHOOK_SECRET);
+    event = stripe.webhooks.constructEvent(rawBody, sig, WEBHOOK_SECRET);
   } catch (err: any) {
     console.error("❌ Stripe signature verification failed:", err?.message || err);
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
@@ -79,8 +84,10 @@ export async function POST(req: Request) {
 
     const currency = session.currency ?? "usd";
 
+    // Prefer client_reference_id = auth.uid() in your checkout routes
     const userId = (session.client_reference_id as string | null) ?? null;
 
+    // Prefer setting metadata.price_id in checkout session creation
     const priceId =
       session.metadata?.price_id ||
       session.metadata?.stripe_price_id ||
@@ -120,6 +127,8 @@ export async function POST(req: Request) {
 
     // 2) entitlements + 3) profiles.product_tier
     if (userId) {
+      const now = new Date().toISOString();
+
       const { error: entError } = await supabaseAdmin
         .from("entitlements")
         .upsert(
@@ -130,8 +139,8 @@ export async function POST(req: Request) {
             source: "stripe",
             stripe_customer_id: (session.customer as string) ?? null,
             stripe_session_id: session.id,
-            granted_at: new Date().toISOString(),
-            updated_at: new Date().toISOString(),
+            granted_at: now,
+            updated_at: now,
           },
           { onConflict: "user_id,tier" }
         );
