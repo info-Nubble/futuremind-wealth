@@ -4,13 +4,36 @@ import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "fmw-portal-checklist-v1";
 
-type ChecklistState = {
-  starter: boolean;
-  toolkit: boolean;
-  website: boolean;
-  templates: boolean;
-  launch: boolean;
-};
+const items = [
+  {
+    key: "starter",
+    label: "Download the AI Income Starter Kit",
+    desc: "Your 165-page roadmap — begin here.",
+  },
+  {
+    key: "toolkit",
+    label: "Download the AI Money Toolkit",
+    desc: "Your plug-and-play execution worksheets.",
+  },
+  {
+    key: "website",
+    label: "Review the Blueprint & Website Guide",
+    desc: "Get your offer and structure aligned.",
+  },
+  {
+    key: "templates",
+    label: "Choose a Website Template",
+    desc: "Universal, Local, Coach, or Creator.",
+  },
+  {
+    key: "launch",
+    label: "Launch your first $27–$97 offer",
+    desc: "Publish, post, and send real traffic.",
+  },
+] as const;
+
+type ChecklistKey = (typeof items)[number]["key"];
+type ChecklistState = Record<ChecklistKey, boolean>;
 
 const DEFAULT_STATE: ChecklistState = {
   starter: false,
@@ -27,7 +50,16 @@ export default function ProgressChecklist() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) setChecked(JSON.parse(raw));
+    if (!raw) return;
+
+    try {
+      const parsed = JSON.parse(raw) as Partial<ChecklistState>;
+      // merge so new keys don't break old saved state
+      setChecked({ ...DEFAULT_STATE, ...parsed });
+    } catch {
+      // ignore corrupt localStorage
+      setChecked(DEFAULT_STATE);
+    }
   }, []);
 
   // Save progress
@@ -36,36 +68,8 @@ export default function ProgressChecklist() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(checked));
   }, [checked]);
 
-  const toggle = (key: keyof ChecklistState) =>
+  const toggle = (key: ChecklistKey) =>
     setChecked((prev) => ({ ...prev, [key]: !prev[key] }));
-
-  const items = [
-    {
-      key: "starter",
-      label: "Download the AI Income Starter Kit",
-      desc: "Your 165-page roadmap — begin here.",
-    },
-    {
-      key: "toolkit",
-      label: "Download the AI Money Toolkit",
-      desc: "Your plug-and-play execution worksheets.",
-    },
-    {
-      key: "website",
-      label: "Review the Blueprint & Website Guide",
-      desc: "Get your offer and structure aligned.",
-    },
-    {
-      key: "templates",
-      label: "Choose a Website Template",
-      desc: "Universal, Local, Coach, or Creator.",
-    },
-    {
-      key: "launch",
-      label: "Launch your first $27–$97 offer",
-      desc: "Publish, post, and send real traffic.",
-    },
-  ];
 
   const total = items.length;
   const completed = items.filter((i) => checked[i.key]).length;
@@ -110,6 +114,7 @@ export default function ProgressChecklist() {
               className="flex items-start gap-3 rounded-xl border border-emerald-500/30 bg-[#0d1115]/90 p-3 shadow-[0_0_25px_rgba(16,185,129,0.15)] transition hover:border-emerald-400/40 hover:bg-[#14181c]/90"
             >
               <button
+                type="button"
                 onClick={() => toggle(item.key)}
                 className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border text-xs font-semibold transition
                 ${
