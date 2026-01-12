@@ -12,6 +12,11 @@ body {
   background: #000;
 }
 
+/* Smooth scrolling for in-page navigation */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Typography polish */
 h1,
 h2,

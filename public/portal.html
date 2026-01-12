@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your AI Income Starter Downloads</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font: Exo 2 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!--
+    QUICK SETUP NOTES:
+    - Replace all URL_* placeholders with your real links.
+    - Examples:
+      URL_QUICK_START_GUIDE_PDF           -> https://yourdomain.com/downloads/quick-start.pdf
+      URL_WEBSITE_SETUP_GUIDE_DOCX        -> https://yourdomain.com/downloads/website-setup-guide.docx
+      URL_AFFILIATE_SYSTEME_IO            -> your Systeme.io affiliate URL
+      URL_CANVA_TEMPLATE                  -> your Canva template share link
+      URL_NOTION_TEMPLATE                 -> your Notion template duplicate link
+  -->
+  <style>
+  :root {
+    /* Text scale to mirror layout */
+    --text-strong: #e4e4e7;   /* zinc-200 */
+    --text-main:   #e4e4e7;
+    --text-muted:  #d4d4d4;   /* neutral-300 */
+    --text-subtle: #a3a3a3;   /* neutral-400 */
+
+    /* Emerald & cyan from hero button */
+    --emerald-500: #22c55e;
+    --cyan-400:    #22d3ee;
+
+    /* Surfaces from homepage cards */
+    --page-bg:   #000000;     /* layout body bg */
+    --card-bg:   rgba(10,10,10,0.9);  /* neutral-950/90 */
+    --ring:      #171717;     /* neutral-900 */
+    --border-soft: rgba(24,24,27,0.9); /* zinc/neutral mix */
+    --radius-xl: 24px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: "Exo 2", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--page-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 32px 16px 64px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  header h1 {
+    font-size: 2.3rem;
+    margin-bottom: 8px;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+
+  header p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 0.98rem;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,0,0,0.9);
+    color: rgba(52, 211, 153, 0.9);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 12px;
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    box-shadow: 0 0 18px rgba(16,185,129,0.35);
+  }
+
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 2.1fr 1.3fr;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 900px) {
+    .layout-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* MAIN CARDS – match “When you join the list” + 7-system card */
+  .card {
+    position: relative;
+    background: var(--card-bg);              /* neutral-950/90 */
+    border-radius: var(--radius-xl);         /* rounded-3xl-ish */
+    border: 1px solid var(--ring);           /* ring-neutral-900 */
+    box-shadow: 0 0 30px rgba(16,185,129,0.18); /* same emerald halo */
+    padding: 24px 24px;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+
+  .card h2,
+  .card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: var(--text-main);                 /* like card headings */
+  }
+
+  .card p,
+  .card li {
+    font-size: 0.95rem;
+    color: var(--text-muted);                /* text-neutral-300 */
+  }
+
+  .card small,
+  .card .help-text {
+    font-size: 0.85rem;
+    color: var(--text-subtle);               /* text-neutral-400 */
+  }
+
+  .list {
+    margin-top: 10px;
+    padding-left: 18px;
+  }
+
+  .list li {
+    margin-bottom: 4px;
+  }
+
+  /* Right-hand “Your Core Downloads” column uses the same card styles,
+     so no extra class needed – just .card */
+
+  .download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  /* Base button — tuned to match hero CTA size */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  /* SIZE – slightly smaller than the hero CTA */
+  /* hero CTA = 12px top/bottom, 24px left/right (py-3 px-6)
+     we’ll use 10px / 20px so it stops looking oversized */
+  padding: 10px 20px;
+
+  /* shape */
+  border-radius: 12px;        /* rounded-xl */
+
+  /* typography */
+  font-size: 0.875rem;        /* text-sm */
+  line-height: 1.25rem;
+  font-weight: 600;
+
+  /* neutral/dark version */
+  border: 1px solid #0a0a0a;
+  background: #0a0a0a;
+  color: var(--text-main);
+
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.65);
+  transition: all 0.18s ease;
+}
+
+.btn:hover:not(.primary) {
+  transform: translateY(-1px);
+  border-color: #27272a;
+}
+
+
+  /* Gradient buttons (Quick Start, Open Canva, Download HTML) */
+.btn.primary {
+  background-image: linear-gradient(to right, #22c55e, #06b6d4);
+  border: none;
+  color: #020617;  /* dark text like hero */
+  font-weight: 600;
+
+  /* glow similar to hero CTA */
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.55);
+
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.btn.primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+
+
+  .btn span.icon {
+    font-size: 1.1rem;
+  }
+
+  /* PATH CARDS – Beginner / Intermediate / Minimalist boxes */
+  .path-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  .path-card {
+    border-radius: 18px;
+    border: 1px dashed rgba(63,63,70,0.9); /* similar to dotted outlines */
+    padding: 14px 14px 13px;
+    background: rgba(10,10,10,0.95);       /* neutral-950/95 */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .path-card h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: var(--text-main);
+  }
+
+  .path-card .level {
+    font-size: 0.8rem;
+    color: #34d399;                         /* text-emerald-300 */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .path-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+
+  .path-card .hint {
+    font-size: 0.78rem;
+    color: var(--text-subtle);
+  }
+
+  .badge {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 0.75rem;
+    padding: 3px 9px;
+    background: rgba(34,197,94,0.18);
+    color: #22c55e;
+    border-radius: 999px;
+    font-weight: 600;
+    border: 1px solid rgba(34,197,94,0.6);
+  }
+
+  footer {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-subtle);
+  }
+
+  .mini-list {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding-left: 18px;
+  }
+
+  strong {
+    color: var(--text-strong);
+  }
+
+  a {
+    color: inherit; /* same as main site globals.css */
+  }
+</style>
+
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="tag">Welcome – Your Downloads Are Ready</div>
+      <h1>Your AI Income Starter Download Center</h1>
+      <p>
+        Follow the steps below to get set up. If you’re brand new, start with the
+        <strong>Beginner Path</strong>. If you’ve built a website before, jump straight to the
+        <strong>Intermediate Path</strong>. Experts can scroll, grab what they need, and go.
+      </p>
+    </header>
+
+    <div class="layout-grid">
+      <!-- LEFT COLUMN: Steps & Paths -->
+      <div>
+        <!-- Step 1 - Start Here -->
+        <section class="card">
+          <h2>Step 1 – Start Here (Required for Everyone)</h2>
+          <p>
+            This gets you oriented in under 10 minutes so you don’t feel lost or overwhelmed.
+          </p>
+          <ul class="list">
+            <li>Download the Quick Start Guide.</li>
+            <li>Skim the Website Setup Overview.</li>
+            <li>Choose your build path: Beginner, Intermediate, or Minimalist.</li>
+          </ul>
+          <div style="margin-top: 12px; display:flex; flex-wrap:wrap; gap:8px;">
+            <a class="btn primary" href="URL_QUICK_START_GUIDE_PDF" target="_blank">
+              <span class="icon">⬇</span>
+              <span>Download Quick Start Guide (PDF)</span>
+            </a>
+            <a class="btn" href="URL_WEBSITE_SETUP_OVERVIEW_PDF" target="_blank">
+              <span class="icon">📄</span>
+              <span>Website Setup Overview</span>
+            </a>
+          </div>
+          <p class="help-text">
+            Pro tip: keep ChatGPT open in another tab. Any time you’re stuck on wording,
+            just paste the section and ask it to rewrite it for your niche.
+          </p>
+        </section>
+
+        <!-- Step 2 - Choose Path -->
+        <section class="card">
+          <h2>Step 2 – Choose Your Build Path</h2>
+          <p>
+            Pick the option that feels easiest for you right now. You can always switch paths later.
+          </p>
+
+          <div class="path-grid">
+            <!-- Beginner / Canva -->
+            <div class="path-card">
+              <div class="badge">Most Popular</div>
+              <div class="level">Beginner Path</div>
+              <h3>Canva Website Template</h3>
+              <p>
+                Drag-and-drop, zero code. Perfect if you’ve never built a site before.
+              </p>
+              <ul class="mini-list">
+                <li>Duplicate the Canva template.</li>
+                <li>Use the prompts to rewrite the text with ChatGPT.</li>
+                <li>Publish your site in under an hour.</li>
+              </ul>
+              <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;">
+                <a class="btn primary" href="URL_CANVA_TEMPLATE" target="_blank">
+                  <span class="icon">🎨</span>
+                  <span>Open Canva Template</span>
+                </a>
+                <a class="btn" href="URL_CANVA_STEP_BY_STEP_GUIDE" target="_blank">
+                  <span class="icon">📘</span>
+                  <span>Canva Step-by-Step Guide</span>
+                </a>
+              </div>
+              <p class="hint">
+                If you want it simple and visual, choose this.
+              </p>
+            </div>
+
+            <!-- Intermediate / HTML -->
+            <div class="path-card">
+              <div class="level">Intermediate Path</div>
+              <h3>HTML Landing Page</h3>
+              <p>
+                For people comfortable with basic tech or using VS Code / hosting.
+              </p>
+              <ul class="mini-list">
+                <li>Download the HTML template.</li>
+                <li>Edit sections with ChatGPT’s help.</li>
+                <li>Deploy to Vercel, GoDaddy, or your favorite host.</li>
+              </ul>
+              <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;">
+                <a class="btn primary" href="URL_HTML_TEMPLATE_ZIP" target="_blank">
+                  <span class="icon">💻</span>
+                  <span>Download HTML Template (.zip)</span>
+                </a>
+                <a class="btn" href="URL_HTML_STEP_BY_STEP_GUIDE" target="_blank">
+                  <span class="icon">📙</span>
+                  <span>HTML Step-by-Step Guide</span>
+                </a>
+              </div>
+              <p class="hint">
+                Great if you want a “real” site on your own domain with full control.
+              </p>
+            </div>
+
+            <!-- Minimalist / Notion -->
+            <div class="path-card">
+              <div class="level">Minimalist Path</div>
+              <h3>Notion Website</h3>
+              <p>
+                Fastest possible setup. One page, clean layout, live in minutes.
+              </p>
+              <ul class="mini-list">
+                <li>Duplicate the Notion template.</li>
+                <li>Fill in your title, offer, and call-to-action.</li>
+                <li>Publish to web and share your link.</li>
+              </ul>
+              <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;">
+                <a class="btn primary" href="URL_NOTION_TEMPLATE" target="_blank">
+                  <span class="icon">📋</span>
+                  <span>Open Notion Template</span>
+                </a>
+                <a class="btn" href="URL_NOTION_STEP_BY_STEP_GUIDE" target="_blank">
+                  <span class="icon">📗</span>
+                  <span>Notion Step-by-Step Guide</span>
+                </a>
+              </div>
+              <p class="hint">
+                Perfect if you just want something live today and can improve later.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT COLUMN: Downloads & Tools -->
+      <div>
+        <!-- Downloads Card -->
+        <section class="card">
+          <h2>Your Core Downloads</h2>
+          <p>Grab all the files you need in one place.</p>
+
+          <h3 style="margin-top:10px;">Guides & Checklists</h3>
+          <div class="download-grid">
+            <a class="btn" href="URL_WEBSITE_SETUP_GUIDE_DOCX" target="_blank">
+              <span class="icon">📄</span>
+              <span>Website Setup Guide (DOCX)</span>
+            </a>
+            <a class="btn" href="URL_WEBSITE_CHECKLIST_DOCX" target="_blank">
+              <span class="icon">✅</span>
+              <span>1-Page Website Checklist</span>
+            </a>
+            <a class="btn" href="URL_STARTER_KIT_MAIN_PDF" target="_blank">
+              <span class="icon">📘</span>
+              <span>Starter Kit Main PDF</span>
+            </a>
+          </div>
+
+          <h3 style="margin-top:16px;">Templates</h3>
+          <div class="download-grid">
+            <a class="btn" href="URL_CANVA_TEMPLATE" target="_blank">
+              <span class="icon">🎨</span>
+              <span>Canva Website Template</span>
+            </a>
+            <a class="btn" href="URL_HTML_TEMPLATE_ZIP" target="_blank">
+              <span class="icon">💻</span>
+              <span>HTML Template (.zip)</span>
+            </a>
+            <a class="btn" href="URL_NOTION_TEMPLATE" target="_blank">
+              <span class="icon">📋</span>
+              <span>Notion Website Template</span>
+            </a>
+          </div>
+
+          <h3 style="margin-top:16px;">AI Tools & Monetization</h3>
+          <div class="download-grid">
+            <a class="btn" href="URL_AI_TOOLS_MASTERLIST_PDF" target="_blank">
+              <span class="icon">🤖</span>
+              <span>AI Tools Affiliate Masterlist (PDF)</span>
+            </a>
+            <a class="btn" href="URL_AFFILIATE_TOOLS_WEBPAGE" target="_blank">
+              <span class="icon">🌐</span>
+              <span>Open Affiliate Tools Webpage</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Bonus / Tools Card -->
+        <section class="card">
+          <h2>Step 3 – Plug In Your AI Tools (Optional But Powerful)</h2>
+          <p>
+            Once your site is live, you can connect AI tools that write, design, and automate
+            most of the work for you.
+          </p>
+          <ul class="list">
+            <li>Use ChatGPT (or your favorite AI) to rewrite each section for your niche.</li>
+            <li>Add funnels and email with tools like Systeme.io.</li>
+            <li>Automate content and follow-up with tools like Zapier or Make.com.</li>
+          </ul>
+          <div style="margin-top:12px;">
+            <a class="btn primary" href="URL_AFFILIATE_TOOLS_WEBPAGE" target="_blank">
+              <span class="icon">🚀</span>
+              <span>View Recommended AI Tools</span>
+            </a>
+          </div>
+          <p class="help-text">
+            You don’t need all of this on day one. Launch something simple first, then upgrade
+            your stack over time.
+          </p>
+        </section>
+
+        <!-- ChatGPT Editing Help Section -->
+        <section class="card">
+          <h2>How to Use ChatGPT to Edit or Improve Your Website</h2>
+          <p>
+            Any time you’re unsure how to write something, fix grammar, add new sections,
+            or improve your website, ChatGPT can do it for you. Just copy/paste the text you
+            want to change and use the prompts below.
+          </p>
+
+          <h3 style="margin-top:10px;">Helpful Prompts</h3>
+          <ul class="list">
+            <li><strong>Rewrite for clarity:</strong> “Rewrite this section so it sounds clearer, more professional, and niche-specific for [your niche].”</li>
+            <li><strong>Improve your headline:</strong> “Give me 5 homepage headline ideas that help [audience] achieve [result].”</li>
+            <li><strong>Create new pages:</strong> “Create a full About page/FAQ page/Services page using this niche: [your niche].”</li>
+            <li><strong>Fix tone:</strong> “Make this friendlier, simpler, and easier to understand.”</li>
+            <li><strong>Customize HTML:</strong> “Rewrite only the text in this HTML block; keep the code the same.”</li>
+          </ul>
+
+          <p class="help-text">
+            Keep ChatGPT open in another tab — it’s your website co-pilot.
+          </p>
+        </section>
+
+        <!-- Affiliate Tools Section -->
+        <section class="card">
+          <h2>Recommended Tools to Build Your Website (Optional)</h2>
+          <p>
+            These tools help you build, design, and automate your AI income system.
+            Some include referral links that help support this project.
+          </p>
+
+          <h3 style="margin-top:10px;">Website Builders</h3>
+          <div class="download-grid">
+            <a class="btn primary" href="URL_AFFILIATE_SYSTEME_IO" target="_blank">
+              <span class="icon">🌐</span>
+              <span>Systeme.io (60% Recurring)</span>
+            </a>
+            <a class="btn" href="URL_AFFILIATE_HOSTINGER" target="_blank">
+              <span class="icon">🖥️</span>
+              <span>Hostinger (Domains + Hosting)</span>
+            </a>
+            <a class="btn" href="URL_AFFILIATE_DURABLE_AI" target="_blank">
+              <span class="icon">⚡</span>
+              <span>Durable AI (Fastest Website Builder)</span>
+            </a>
+          </div>
+
+          <h3 style="margin-top:16px;">Design & Branding Tools</h3>
+          <div class="download-grid">
+            <a class="btn" href="URL_AFFILIATE_CANVA_PRO" target="_blank">
+              <span class="icon">🎨</span>
+              <span>Canva Pro (Templates & Branding)</span>
+            </a>
+            <a class="btn" href="URL_AFFILIATE_LUMINAR_NEO" target="_blank">
+              <span class="icon">🖼️</span>
+              <span>Luminar Neo (AI Image Editing)</span>
+            </a>
+          </div>
+
+          <h3 style="margin-top:16px;">Automation Tools</h3>
+          <div class="download-grid">
+            <a class="btn" href="URL_AFFILIATE_ZAPIER" target="_blank">
+              <span class="icon">⚙️</span>
+              <span>Zapier (Automation)</span>
+            </a>
+            <a class="btn" href="URL_AFFILIATE_MAKE_COM" target="_blank">
+              <span class="icon">🔄</span>
+              <span>Make.com (Advanced Automation)</span>
+            </a>
+          </div>
+
+          <h3 style="margin-top:16px;">Content & Video Tools</h3>
+          <div class="download-grid">
+            <a class="btn" href="URL_AFFILIATE_JASPER_AI" target="_blank">
+              <span class="icon">✍️</span>
+              <span>Jasper AI (Content Writing)</span>
+            </a>
+            <a class="btn" href="URL_AFFILIATE_OPUS_CLIP" target="_blank">
+              <span class="icon">🎬</span>
+              <span>Opus Clip (Video Reels)</span>
+            </a>
+          </div>
+
+          <p class="help-text">
+            Tip: Only choose 1–2 tools to start. Keep it simple.
+          </p>
+        </section>
+
+        <!-- Help Card -->
+        <section class="card">
+          <h2>Need Help?</h2>
+          <p>
+            If you get stuck, don’t panic. Most things can be solved by:
+          </p>
+          <ul class="list">
+            <li>Copying the text you’re stuck on into ChatGPT and asking it to fix or rewrite.</li>
+            <li>Re-watching your Quick Start instructions.</li>
+            <li>Taking a short break, then coming back to just finish the <em>next step</em>.</li>
+          </ul>
+          <p class="help-text">
+            If support is included with your purchase, check your email for how to contact us.
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <footer>
+      You are further ahead than most people just by being here. Publish something simple, then improve as you go.
+    </footer>
+  </div>
+</body>
+</html>

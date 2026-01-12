@@ -39,3 +39,24 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# --- Local artifacts / exports ---
+project-tree.txt
+structure.txt
+*.zip
+
+# --- Never commit paid content ---
+/content
+/Content
+
+# --- Do not ship paid downloads/templates from public ---
+/public/downloads
+/public/webtemplate
+/public/Backup
+
+# --- Random local backups accidentally created under app ---
+/src/app/Backup
+
+# --- Docs (only if you do NOT want any Word docs in the repo) ---
+*.docx
+
