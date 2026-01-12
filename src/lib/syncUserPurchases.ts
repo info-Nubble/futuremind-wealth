@@ -1,5 +1,6 @@
 // src/lib/syncUserPurchases.ts
-import { createClient } from "@/lib/supabase/server";
+import { createSupabaseServerClient as createClient } from "@/lib/supabaseServer";
+
 
 /**
  * Syncs any purchases that match the user's email into their user_id,
